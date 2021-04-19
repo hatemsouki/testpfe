@@ -4,7 +4,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+              
+                sh 'make' 
+                archiveArtifacts artifacts: '**/app/*.php', fingerprint: true 
+           
             }
         }
         stage('Test') {
